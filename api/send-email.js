@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     const { name, email, message } = req.body;
 
     const data = await resend.emails.send({
-      from: "Sanitize Cali <no-reply@sanitizecali.com>",
+      from: "Sanitize Cali <onboarding@resend.dev>",
       to: "info@sanitizecali.com",
       reply_to: email,   // ← THIS FIXES YOUR EMAIL INBOX "REPLY TO" ISSUE
       subject: `New Quote Request from ${name}`,
