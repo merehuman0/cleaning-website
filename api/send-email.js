@@ -10,6 +10,8 @@ export default async function handler(req, res) {
   try {
     const { name, email, message } = req.body;
 
+    console.log("Sending email with FROM:", "onboarding@resend.dev");
+
     const data = await resend.emails.send({
       from: "Sanitize Cali <onboarding@resend.dev>",
       to: "info@sanitizecali.com",
