@@ -18,7 +18,7 @@ app.post("/send-email", async (req, res) => {
 
   try {
     const data = await resend.emails.send({
-      from: "Sanitize Cali <info@sanitizecali.com>",
+      from: "Sanitize Cali <no-reply@sanitizecali.com>",
       to: "info@sanitizecali.com",
       subject: "New Cleaning Quote Request",
       html: `
