@@ -36,6 +36,8 @@ app.post("/send-email", async (req, res) => {
     console.log("Sending confirmation email to customer...");
 
     // 2) Confirmation email to customer
+    console.log("About to send confirmation email to:", email);
+
     await resend.emails.send({
       from: "Sanitize Cali <no-reply@sanitizecali.com>",
       to: email,
