@@ -10,10 +10,10 @@ export default async function handler(req, res) {
   try {
     const { name, email, message } = req.body;
 
-    console.log("Sending email with FROM:", "onboarding@resend.dev");
+    console.log("Sending email with FROM:", "no-reply@sanitizecali.com");
 
     const data = await resend.emails.send({
-      from: "Sanitize Cali <onboarding@resend.dev>",
+      from: "Sanitize Cali <no-reply@sanitizecali.com>",
       to: "info@sanitizecali.com",
       reply_to: email,   // ← THIS FIXES YOUR EMAIL INBOX "REPLY TO" ISSUE
       subject: `New Quote Request from ${name}`,
