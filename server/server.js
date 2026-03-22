@@ -24,7 +24,7 @@ app.post("/send-email", async (req, res) => {
       to: "info@sanitizecali.com",
       replyTo: email,
       subject: "New Cleaning Quote Request",
-      text: `New quote request from ${name} (${email}): ${message}`,
+      text: `New quote request from ${name} (${email}): ${message}`,   // ← REQUIRED
       html: `
         <h2>New Quote Request</h2>
         <p><strong>Name:</strong> ${name}</p>
@@ -56,7 +56,7 @@ app.post("/send-email", async (req, res) => {
 
     res.json({ success: true, data });
   } catch (error) {
-    console.error("Email error:", error);
+    console.error("FULL ERROR:", JSON.stringify(error, null, 2));
     res.status(500).json({ success: false, error });
   }
 });
