@@ -35,6 +35,7 @@ app.post("/send-email", async (req, res) => {
 await resend.emails.send({
   from: "Sanitize Cali <no-reply@sanitizecali.com>",
   to: email,
+  replyTo: "info@sanitizecali.com",
   subject: "We received your quote request",
   html: `
     <h2>Thanks for contacting Sanitize Cali!</h2>
