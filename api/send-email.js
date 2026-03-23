@@ -7,7 +7,13 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { name, email, message } = req.body;
+  const { name, email, message, company } = req.body;
+
+  // Honeypot check
+if (company && company.length > 0) {
+  console.log("Bot detected — honeypot triggered");
+  return res.status(200).json({ success: true });
+}
 
   try {
     console.log("Sending business email...");
