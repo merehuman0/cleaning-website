@@ -135,6 +135,26 @@ grid-template-columns:1fr 1fr;
 gap:40px;
 }
 
+.form-success{
+display:none;
+padding:10px;
+background:#e6ffe6;
+color:#0a7a0a;
+border:1px solid #0a7a0a;
+border-radius:4px;
+margin-bottom:15px;
+}
+
+.form-error{
+display:none;
+padding:10px;
+background:#ffe6e6;
+color:#b30000;
+border:1px solid #b30000;
+border-radius:4px;
+margin-bottom:15px;
+}
+
 form input,
 form textarea{
 width:100%;
