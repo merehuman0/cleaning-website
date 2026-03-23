@@ -135,7 +135,7 @@ grid-template-columns:1fr 1fr;
 gap:40px;
 }
 
-.form-success{
+#form-success{
 display:none;
 padding:10px;
 background:#e6ffe6;
@@ -145,7 +145,7 @@ border-radius:4px;
 margin-bottom:15px;
 }
 
-.form-error{
+#form-error{
 display:none;
 padding:10px;
 background:#ffe6e6;
