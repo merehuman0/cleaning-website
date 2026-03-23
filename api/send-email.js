@@ -2,6 +2,9 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// Rate limiter store
+let lastSubmission = {};
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
@@ -9,11 +12,40 @@ export default async function handler(req, res) {
 
   const { name, email, message, company } = req.body;
 
-  // Honeypot check
-if (company && company.length > 0) {
-  console.log("Bot detected — honeypot triggered");
-  return res.status(200).json({ success: true });
-}
+  // -----------------------------
+  // RATE LIMITER (Step G)
+  // -----------------------------
+  const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+
+  const now = Date.now();
+  const windowMs = 15000; // 15 seconds
+  const limit = 1; // 1 submission per window
+
+  if (!lastSubmission[ip]) {
+    lastSubmission[ip] = [];
+  }
+
+  // Keep timestamps within the window
+  lastSubmission[ip] = lastSubmission[ip].filter(
+    (timestamp) => now - timestamp < windowMs
+  );
+
+  // If too many submissions, block
+  if (lastSubmission[ip].length >= limit) {
+    console.log("Rate limit triggered for IP:", ip);
+    return res.status(429).json({ error: "Too many requests" });
+  }
+
+  // Record this submission
+  lastSubmission[ip].push(now);
+
+  // -----------------------------
+  // HONEYPOT CHECK
+  // -----------------------------
+  if (company && company.length > 0) {
+    console.log("Bot detected — honeypot triggered");
+    return res.status(200).json({ success: true });
+  }
 
   try {
     console.log("Sending business email...");
