@@ -155,6 +155,11 @@ border-radius:4px;
 margin-bottom:15px;
 }
 
+#form-error,
+#form-success{
+text-align:center;
+}
+
 form input,
 form textarea{
 width:100%;
