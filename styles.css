@@ -127,6 +127,21 @@ padding:80px 8%;
 margin-bottom:20px;
 }
 
+.service-area {
+  text-align: center;
+  margin: 60px auto;
+  padding: 20px;
+  max-width: 900px;
+}
+
+.service-area-map {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  margin-top: 20px;
+}
+
 /* CONTACT */
 
 .contact-grid{
@@ -178,6 +193,25 @@ width:100%;
 border-radius:6px;
 font-weight:600;
 cursor:pointer;
+}
+
+.google-map-section {
+  background: #f7f9fc; /* soft light gray-blue */
+  padding: 50px 20px;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.google-map-section h2 {
+  margin-bottom: 20px;
+  color: #0a3d62; /* matches your brand color */
+}
+
+.google-map-section iframe {
+  max-width: 900px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
 /* FOOTER */
