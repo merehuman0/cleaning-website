@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("form-error").style.display = "none";
 
     try {
-      const response = await fetch("https://cleaning-website-phi-pied.vercel.app/api/send-email", {
+      const response = await fetch("/api/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
